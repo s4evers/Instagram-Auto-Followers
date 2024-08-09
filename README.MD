@@ -5,13 +5,14 @@ Bu Python skripti avtomatik ravishda [SMMPanel](https://smmpanel.com) saytida ak
 
 Chrome orqali ishga tushirish uchun sistemangizga mos drayverni yuklab oling.
 
-## Важно обратить внимание
+## Instagram akkauntni kiritish
 
-В коде, расположенном в файле `main.py` на строке 162, происходит ввод ссылки в поле:
+`main.py` faylidan 162 qatordan instagram foydalanuvchi nomingizni kiritishni unutmang.
 
 ```python
 # main.py, строка 162
 link_input.send_keys('https://instagram.com/cs.mer6/')
+```
 
 ## O'rnatish
 

@@ -15,4 +15,3 @@ Chrome orqali ishga tushirish uchun sistemangizga mos drayverni yuklab oling.
 
   ```bash
 python3 main.py
-    ```

@@ -11,16 +11,16 @@ import random
 import string
 
 def generate_random_string(length=12):
-    "Сгенерировать случайную строку букв и цифр."
+    "Tasodifiy harf va raqam tanlash"
     characters = string.ascii_letters + string.digits
     return ''.join(random.choice(characters) for _ in range(length))
 
 def generate_random_email():
-    "Создайте случайный адрес электронной почты."
+    "Tasodifiy elektron pochta tanlash"
     return f"{generate_random_string(10)}@{generate_random_string(5)}.com"
 
 def generate_random_login():
-    "Сгенерируйте случайное имя для входа."
+    "Tasodifiy ism tanlash"
     return generate_random_string(16)
 
 def run_script():
@@ -34,11 +34,11 @@ def run_script():
         driver.get("https://smmpanel.com/signup")
         time.sleep(2)
 
-        # Генерация случайных данных
+        # Tasodifiy ma'lumotlar yaratish
         random_login = generate_random_login()
         random_email = generate_random_email()
 
-        # Ввод данных
+        # Ma'lumotlarni kiritish
         login_input = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.ID, 'login'))
         )
@@ -93,26 +93,25 @@ def run_script():
         retry_password_input.send_keys('qwertyuiop')
         time.sleep(2)
 
-        # Прокрутка страницы вниз на 500 пикселей
+        # Browser Oynasini 500 px pastga tushirish
         driver.execute_script("window.scrollBy(0, 500);")
 
-        # Переключение на iframe
+        # iframega o'tish
         iframe = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, "//iframe[@title='reCAPTCHA']"))
         )
         driver.switch_to.frame(iframe)
 
-        # Выбор и клик на reCAPTCHA checkbox
+        # Tanlash va reCAPTCHA checkbox ni bosish
         re_button = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.CLASS_NAME, 'recaptcha-checkbox-border'))
         )
         re_button.click()
         time.sleep(2)
-
-        # Переключение обратно из iframe
+        
         driver.switch_to.default_content()
 
-        # Проверка наличия CAPTCHA challenge
+        # CAPTCHA challenge tekshirish
         try:
             iframe_challenge = WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, '//iframe[@title="recaptcha challenge expires in two minutes"]'))
@@ -120,22 +119,21 @@ def run_script():
             driver.switch_to.frame(iframe_challenge)
             time.sleep(3)
 
-            # Нажмите на кнопку расширения Buster
+            # Buster extension knopkasiga bosish
             buster_button = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, '//*[@id="rc-imageselect"]/div[3]/div[2]/div[1]/div[1]/div[4]'))
             )
             buster_button.click()
             time.sleep(5)
 
-            # Переключение обратно из iframe
             driver.switch_to.default_content()
 
         except Exception as e:
-            # Если CAPTCHA не требуется, продолжайте выполнение скрипта
-            print("CAPTCHA не требуется или произошла ошибка при работе с CAPTCHA:", e)
+            # Agar Recaptcha so'ralmasa davom ettirish
+            print("Recaptcha ni tekshirish shart emas yoki xatolik yuz berdi", e)
             driver.switch_to.default_content()
 
-        # Нажатие кнопки отправки
+        # Yuborish knopkasiga bosish
         terms_checkbox = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='RegistrationForm[termsofservice]']"))
         )
@@ -150,12 +148,11 @@ def run_script():
 
         time.sleep(1)
 
-        # Найдите элемент <select> по его селектору
+
         select_element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, "//select[@id='orderform-category']"))
         )
 
-        # Создайте объект Select и выберите опцию по значению
         select = Select(select_element)
         select.select_by_value('20379')
 
@@ -177,20 +174,20 @@ def run_script():
         submit_button.click()
 
         time.sleep(2)
-        print("Скрипт выполнен успешно!")
+        pselection"Dastur muvaffaqiyatli bajarildi!")
 
     except Exception as ex:
-        print("Произошла ошибка:", ex)
+        print("Xatolik yuz berdi:", ex)
 
     finally:
         driver.close()
         driver.quit()
 
 if __name__ == "__main__":
-    num_retries = int(input("Введите количество повторений: "))
+    num_retries = int(input("Nechi marta ishlatmoqchisiz: "))
 
     while num_retries > 0:
         run_script()
         num_retries -= 1
-        print(f"Осталось повторений: {num_retries}")
-        time.sleep(5)  # Пауза между попытками, при необходимости
+        print(f"Qolgan urinishlar: {num_retries}")
+        time.sleep(3)

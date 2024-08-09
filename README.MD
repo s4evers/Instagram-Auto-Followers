@@ -7,11 +7,11 @@ Chrome orqali ishga tushirish uchun sistemangizga mos drayverni yuklab oling.
 
 ## Instagram akkauntni kiritish
 
-`main.py` faylidan 162 qatordan instagram foydalanuvchi nomingizni kiritishni unutmang.
+`main.py` faylidan 162 qatordan instagram foydalanuvchi nomingizni kiritishni unutmang:
 
 ```python
-# main.py, строка 162
-link_input.send_keys('https://instagram.com/cs.mer6/')
+# Masalan: cristiano
+link_input.send_keys('https://instagram.com/cristiano/')
 ```
 
 ## O'rnatish

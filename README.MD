@@ -10,7 +10,7 @@ Chrome orqali ishga tushirish uchun sistemangizga mos drayverni yuklab oling.
    git clone https://github.com/s4evers/Instagram-Auto-Followers.git
    cd Instagram-Auto-Followers
    pip install -r requirements.txt
-    ```
+```
 ## Ishga tushirish
 
   ```bash

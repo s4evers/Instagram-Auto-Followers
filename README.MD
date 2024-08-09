@@ -18,7 +18,9 @@ link_input.send_keys('https://instagram.com/cristiano/')
 
    ```bash
    git clone https://github.com/s4evers/Instagram-Auto-Followers.git
+
    cd Instagram-Auto-Followers
+
    pip install -r requirements.txt
 ```
 ## Ishga tushirish
